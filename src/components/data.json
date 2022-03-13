@@ -1,0 +1,52 @@
+
+[
+    {
+        "comment":
+     "json is used only for testing, react app gets info from api",
+ 
+    "bpm": 96,
+    "key": "A#",
+    "name": "We are the champions",
+    "wavPath": "we-are-the-champions",
+    "mp3Path": "we-are-the-champions",
+    "picturePath": "we-are-the-champions",
+    "tags": [{"name": "queen"},
+             {"name": "rock"}]
+    }, {
+    "bpm": 100,
+    "key": "Fm",
+    "name": "Moon",
+    "wavPath": "moon",
+    "mp3Path": "moon",
+    "picturePath": "moon",
+    "tags": [{"name": "little-people"},
+             {"name": "indie"}]
+    }, {
+    "bpm": 120,
+    "key": "Dm",
+    "name": "Demon lover",
+    "wavPath": "demon-lover",
+    "mp3Path": "demon-lover",
+    "picturePath": "demon-lover",
+    "tags": [{"name": "devilish-trio"},
+             {"name": "night-drive"}]
+    }, {
+    "bpm": 180,
+    "key": "Bb",
+    "name": "Running in the 90s",
+    "wavPath": "running-in-the-90s",
+    "mp3Path": "running-in-the-90s",
+    "picturePath": "running-in-the-90s",
+    "tags": [{"name": "initialD"},
+             {"name": "eaurobeat"}]
+    }, {
+    "bpm": 131,
+    "key": "Gmaj7",
+    "name": "Moonlight sonata",
+    "wavPath": "moonlight-sonata",
+    "mp3Path": "moonlight-sonata",
+    "picturePath": "moonlight-sonata",
+    "tags": [{"name": "classic"},
+             {"name": "bethoveen"}]
+    }
+]
