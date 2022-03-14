@@ -2,7 +2,7 @@
 import { connect } from "react-redux";
 import { setSearchItem } from "../redux/searchItem/searchItemActions";
 
-function SearchList({ input, itemsData, setSearchItem }) {
+function SearchList({ input, isClicked, setIsClicked, itemsData, setSearchItem }) {
   // create new array wehere all names are lower case
   const filteredData = itemsData.items.filter((item) => {
     return item.name.toLowerCase().includes(input);
@@ -11,11 +11,11 @@ function SearchList({ input, itemsData, setSearchItem }) {
   // send song obj to visulizer section
   const handleClick = (item) => {
     setSearchItem(item);
-    console.log(input)
+    setIsClicked(!isClicked)
   }
   
   return (
-    <ul className={input !== "" ? // change class when text is typed
+    <ul className={input !== "" && isClicked !== false ? // change class when text is typed
         "list-result-active" : "list-result"}>
       {filteredData.map((item) => (
         <li className='searched-item'

@@ -25,7 +25,10 @@ function Search() {
                type="text"
                placeholder='Search...'
                onChange={inputHandler} />
-        <SearchList input={inputText}/> 
+        <SearchList input={inputText}
+                 // to close list when song is choosen
+                    isClicked={isClicked} 
+                    setIsClicked={setIsClicked} /> 
       </div>
     }
     <img className='header-icon' // search icon
