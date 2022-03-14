@@ -8,10 +8,11 @@ function SearchList({ input, isClicked, setIsClicked, itemsData, setSearchItem }
     return item.name.toLowerCase().includes(input);
   });
 
-  // send song obj to visulizer section
   const handleClick = (item) => {
+     // send song obj to visulizer section
     setSearchItem(item);
-    setIsClicked(!isClicked)
+    // close list when song is choosen
+    setIsClicked(!isClicked);
   }
   
   return (
