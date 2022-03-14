@@ -1,5 +1,5 @@
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { fetchItems } from "../redux/apiData/apiActions";
 
@@ -18,6 +18,11 @@ function Strongs() {
 }
 
 function MusicList({ itemsData, fetchItems }) {
+  const [numOfSongs, setNumOfSongs] = useState(4);
+  const loadMoreSongs =() => {
+    setNumOfSongs(numOfSongs + 4);
+  }
+
   useEffect(() => {
     fetchItems()
   }, [])
@@ -28,13 +33,14 @@ function MusicList({ itemsData, fetchItems }) {
         <Strongs />
         {itemsData.error ? (<h2>{itemsData.error.message}</h2>) : (
           itemsData.loading) ? (<div>Loading...</div>) : (
-            itemsData.items.map((item) => 
+            itemsData.items.slice(0, numOfSongs).map((item) => 
               ( <MusicLi key={item.id} item={item}/> )
             ) 
           )
         }    
       </ul>
-      <button className="load-btn">
+      <button className="load-btn"
+              onClick={loadMoreSongs}>
         {"<<< Load More Tracks >>>"}
       </button>
     </div>
