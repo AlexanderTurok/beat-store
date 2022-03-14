@@ -2,3 +2,4 @@
 1) Make: when new song is choosed to play, previous must to stop
 2) Make: visualizer reacts to button by className not id
 3) Create: infinite scroll screen
+4) Build player
