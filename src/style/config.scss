@@ -1,0 +1,71 @@
+// Font Sizes
+$fss: 16px;
+$fsm: 22px;
+$fsl: 28px;
+// Colors
+$color_1: #000;
+$color_2: #fff;
+$color_3: #5e5e5e;
+$color_4: #02050e;
+// Template for DIV
+%flex-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+%flex-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+// Template for button
+%header-btn {
+  transition: 500ms;
+  color: #fff;
+  font-size: $fsm;
+  list-style: none;
+  border-radius: 3px;
+  padding: 10px 15px;
+  margin: 0 3px;
+}
+%header-btn-hover {
+  transition: 500ms;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+%content-button {
+  padding: 10px 15px;
+  min-width: 380px;
+  justify-content: flex-start;
+  margin: 5px;
+}
+%play-button {
+  position: absolute;
+  top: 34px;
+  left: 34px;
+  border-radius: 100%;
+  border: 10px rgba($color_1, $alpha: 0.7) solid;
+  &:hover {
+    transition: 300ms;
+    border: 10px white solid;
+  }
+}
+// Template input
+%input {
+  border: $color_2 2px solid;
+  background-color: transparent;
+  color: $color_2;
+  font-size: $fsm;
+  margin: 5px 5px;
+  &::placeholder {
+    color: $color_2;
+  }
+}
+// Template for images
+%circle-image {
+  height: 60px;
+  width: auto;
+  border-radius: 100%;
+  margin: 0 3px;
+}

@@ -1,0 +1,63 @@
+@import "config.scss";
+
+// Music Visualization Section behind Header
+.visualization-section {
+  @extend %flex-col;
+  width: 100%;
+  height: 500px;
+  background-color: $color_1;
+  .music-data {
+    @extend %flex-col;
+    align-items: flex-start;
+    .music-li {
+      @extend %flex-row;
+      justify-content: space-between;
+      list-style: none;
+      color: $color_2;
+      .play-image {
+        position: relative;
+        top: 0;
+        left: 0;
+        .music-li-icon {
+          height: 128px;
+          width: 128px;
+          position: relative;
+          top: 0;
+          left: 0;
+        }
+        #play-button {
+          height: 60px;
+          width: 60px;
+          color: #000;
+          @extend %play-button;
+        }
+      }
+      .music-li-el {
+        margin: 0px 3px;
+        font-size: $fsl;
+      }
+      .music-li-title {
+        min-width: 190px;
+      }
+      .music-li-p {
+        min-width: 45px;
+      }
+      .div-tags {
+        .music-li-tags {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          white-space: nowrap;
+          width: 120px;
+          padding-left: 6px;
+          border: 1px solid $color_3;
+          border-radius: 3px;
+          color: $color_3;
+        }
+      }
+      .btn-add {
+        @extend %header-btn;
+        background-color: $color_1;
+      }
+    }
+  }
+}

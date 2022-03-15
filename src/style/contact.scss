@@ -1,0 +1,112 @@
+@import "config.scss";
+
+// Contact page
+.contact {
+  width: 100%;
+  @extend %flex-col;
+  background-color: $color_4;
+  .contact-content {
+    @extend %flex-row;
+    align-items: flex-start;
+    .contact-col {
+      @extend %flex-col;
+      .contact-form {
+        @extend %flex-col;
+        align-items: flex-start;
+        .user-data {
+          @extend %input;
+          height: 45px;
+          width: 410px;
+          &:focus {
+            outline: none;
+          }
+        }
+        .user-data-content {
+          @extend %input;
+          min-height: 100px;
+          width: 410px;
+          &:focus {
+            outline: none;
+          }
+        }
+        .form-answer {
+          @extend %flex-row;
+          .server-answer {
+            color: $color_2;
+            max-width: 200px;
+            margin: 5px;
+          }
+          .send-mail {
+            @extend %header-btn;
+            background-color: $color_2;
+            border: 2px $color_1 solid;
+            color: $color_1;
+            font-weight: 900;
+            margin: 5px;
+            width: 200px;
+            font-size: $fss;
+            &:hover {
+              transition: 500ms;
+              background-color: rgba(255, 255, 255, 0.7);
+            }
+          }
+        }
+      }
+    }
+    .button-fb,
+    .button-tw,
+    .button-yt,
+    .button-ig,
+    .button-sc {
+      @extend %flex-row;
+      @extend %content-button;
+      color: $color_2;
+      transition: 500ms;
+    }
+    .button-fb {
+      background-color: #3b5998;
+      border: 2.5px solid #3b5998;
+      &:hover {
+        transition: 500ms;
+        background-color: rgba(#3b5998, $alpha: 0.75);
+      }
+    }
+    .button-tw {
+      background-color: #55acee;
+      border: 2.5px solid #55acee;
+      &:hover {
+        transition: 500ms;
+        background-color: rgba(#55acee, $alpha: 0.75);
+      }
+    }
+    .button-yt {
+      background-color: #ec2721;
+      border: 2.5px solid #ec2721;
+      &:hover {
+        transition: 500ms;
+        background-color: rgba(#ec2721, $alpha: 0.75);
+      }
+    }
+    .button-ig {
+      background-color: #6b33de;
+      border: 2.5px solid #6b33de;
+      &:hover {
+        transition: 500ms;
+        background-color: rgba(#6b33de, $alpha: 0.75);
+      }
+    }
+    .button-sc {
+      background-color: #ff6a36;
+      border: 2.5px solid #ff6a36;
+      &:hover {
+        transition: 500ms;
+        background-color: rgba(#ff6a36, $alpha: 0.75);
+      }
+    }
+    .button-image {
+      @extend %circle-image;
+      height: 20px;
+      margin-right: 10px;
+    }
+  }
+}

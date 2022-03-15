@@ -1,0 +1,105 @@
+@import "config.scss";
+
+// home page
+.home {
+  width: 100%;
+  @extend %flex-col;
+  .music-list {
+    @extend %flex-col;
+    margin-bottom: 10px;
+    .load-btn {
+      width: 220px;
+      height: 45px;
+      border: 2px black solid;
+      border-radius: 3px;
+      font-size: $fss;
+    }
+    .music-data {
+      @extend %flex-col;
+      align-items: flex-start;
+      .music-li {
+        @extend %flex-row;
+        justify-content: space-between;
+        list-style: none;
+        .strong {
+          @extend %header-btn;
+          color: $color_3;
+          font-size: $fss;
+          padding-left: 0;
+          padding-right: 0;
+        }
+        .music-li-el {
+          margin: 0px 3px;
+          font-size: $fss;
+        }
+        .strong-title,
+        .music-li-title {
+          min-width: 190px;
+        }
+        .strong-title {
+          margin-left: 52px;
+        }
+        .strong-time,
+        .strong-bpm,
+        .music-li-p {
+          min-width: 45px;
+        }
+        .strong-tags,
+        .div-tags {
+          display: flex;
+          flex-direction: row;
+          min-width: 145px;
+          .music-li-tags {
+            padding-right: 1px;
+            padding-left: 3px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 70px;
+            border: 1px solid $color_3;
+            border-radius: 3px;
+            color: $color_3;
+          }
+        }
+        .btn-add {
+          @extend %header-btn;
+          background-color: $color_1;
+        }
+        .play-image {
+          .music-li-icon {
+            height: 44px;
+            width: 44px;
+          }
+          #play-button {
+            display: none;
+          }
+        }
+        .play-image:hover {
+          position: relative;
+          top: 0;
+          left: 0;
+          .music-li-icon {
+            height: 44px;
+            width: 44px;
+            position: relative;
+            top: 0;
+            left: 0;
+          }
+          #play-button {
+            display: block;
+            height: 24px;
+            width: 24px;
+            color: #000;
+            @extend %play-button;
+            top: 10px;
+            left: 10px;
+            border: 1px rgba($color_1, $alpha: 0.7) solid;
+            &:hover {
+              border: 1px white solid;
+            }
+          }
+        }
+      }
+    }
+  }
+}
