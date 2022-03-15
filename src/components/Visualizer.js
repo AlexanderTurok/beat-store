@@ -1,7 +1,6 @@
 
 import { useRef, useEffect } from 'react';
 import { connect } from 'react-redux';
-
 import useAudio from './useAudio';
 
 function Visualizer({ songData }) {
@@ -13,13 +12,15 @@ function Visualizer({ songData }) {
     const HEIGHT = 150;
     const canvas = canvasRef.current;
     const canvasCtx = canvas.getContext('2d');
+    const button = document.getElementById('play-button');
     
-    const audio = new Audio(require(`../music/${songData.song.mp3Path}.mp3`));
+    const audio = new Audio(require(
+      `../music/${songData.song.mp3Path}.mp3`));
     let audioCtx = new AudioContext();
 
     // create audio context when button play is clicked
     // toggle for start visualizing
-    document.getElementById('play-button').addEventListener('click', () => {
+    button.addEventListener('click', () => {
       audioCtx.resume();
       toggle();
     });
@@ -71,4 +72,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Visualizer);
+export default connect(
+  mapStateToProps)
+(Visualizer);
