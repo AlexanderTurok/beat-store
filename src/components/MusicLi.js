@@ -25,7 +25,7 @@ function MusicLi({ item, isPlayingData, setSong, setIsPlaying }) {
       <div className="play-image">
         <img className="music-li-el music-li-icon"
              src={require(`../images/${item.picturePath}.jpg`)}/>
-        <img id="play-button"
+        <img className="play-button"
              src={playing ? pauseButton : playButton}
              onClick={handleClick} />
       </div>
