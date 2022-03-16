@@ -1,10 +1,8 @@
 
 import { useRef, useEffect } from 'react';
 import { connect } from 'react-redux';
-import useAudio from './useAudio';
 
-function Visualizer({ songData }) {
-  const [playing, toggle] = useAudio();
+function Visualizer({ songData, isPlayingData }) {
   const canvasRef = useRef(null);
   useEffect(() => {
     // basic setup
@@ -12,18 +10,10 @@ function Visualizer({ songData }) {
     const HEIGHT = 150;
     const canvas = canvasRef.current;
     const canvasCtx = canvas.getContext('2d');
-    const button = document.getElementById('play-button');
     
     const audio = new Audio(require(
       `../music/${songData.song.mp3Path}.mp3`));
     let audioCtx = new AudioContext();
-
-    // create audio context when button play is clicked
-    // toggle for start visualizing
-    button.addEventListener('click', () => {
-      audioCtx.resume();
-      toggle();
-    });
     
     const analyser = audioCtx.createAnalyser();
     const source = audioCtx.createMediaElementSource(audio);
@@ -52,11 +42,9 @@ function Visualizer({ songData }) {
     };
 
     draw(); 
+    isPlayingData.isPlaying ? audio.play() : audio.pause()
 
-    // if we play song, it visualize it
-    playing ? audio.play() : audio.pause()
-
-  }, [playing, songData.song.mp3Path]);     
+  }, [isPlayingData.isPlaying, songData.song.mp3Path]);     
                     
   return (
     <div>
@@ -68,7 +56,8 @@ function Visualizer({ songData }) {
 
 const mapStateToProps = (state) => {
   return {
-    songData: state.song
+    songData: state.song,
+    isPlayingData: state.isPlaying
   }
 }
 

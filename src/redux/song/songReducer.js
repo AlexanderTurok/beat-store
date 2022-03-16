@@ -1,8 +1,5 @@
 
-import {
-  SET_SONG,
-  SET_IS_PLAYING
-} from "./songTypes";
+import { SET_SONG } from "./songTypes";
 
 const initialState = {
   song: {
@@ -17,8 +14,7 @@ const initialState = {
               "name": "queen"},
              {"id": 2,
               "name": "rock"}]
-  },
-  isPlaying: false
+  }
 }
 
 function songReducer(state = initialState, action) {
@@ -27,11 +23,6 @@ function songReducer(state = initialState, action) {
       return {
         ...state,
         song: action.payload
-      }
-    case SET_IS_PLAYING:
-      return {
-        ...state,
-        isPlaying: action
       }
     default: return state;
   }

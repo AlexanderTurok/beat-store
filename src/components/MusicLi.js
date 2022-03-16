@@ -1,19 +1,22 @@
 
 import { connect } from "react-redux";
 import { setSong } from "../redux/song/songActions";
+import { setIsPlaying } from "../redux/isPlaying/isPlayingActions";
 
 import useAudio from "./useAudio";
 import share from "../images/share-button.png";
 import playButton from "../images/play-button.png";
 import pauseButton from "../images/pause-button.png";
 
-function MusicLi({ item, setSong }) {
+function MusicLi({ item, isPlayingData, setSong, setIsPlaying }) {
   const [playing, toggle] = useAudio(require(`../music/${item.mp3Path}.mp3`));
 
   const handleClick = () => {
     // setSong sends title of the song to vizualizer
     setSong(item);
     toggle();
+    setIsPlaying();
+    console.log(isPlayingData.isPlaying)
   }
 
   return(
@@ -45,12 +48,14 @@ function MusicLi({ item, setSong }) {
 
 const mapStateToProps = state => {
   return {
-    songData: state.song
+    songData: state.song,
+    isPlayingData: state.isPlaying
   }
 }
 const mapDispatchToProps = dispatch => {
   return {
-    setSong: (...args) => dispatch(setSong(...args))
+    setSong: (...args) => dispatch(setSong(...args)),
+    setIsPlaying: () => dispatch(setIsPlaying())
   }
 }
 
