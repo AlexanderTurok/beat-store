@@ -1,5 +1,24 @@
 @import "config.scss";
 
+// Template input
+%input {
+  border: $color_2 2px solid;
+  background-color: transparent;
+  color: $color_2;
+  font-size: $fsm;
+  margin: 5px 5px;
+  &::placeholder {
+    color: $color_2;
+  }
+}
+// Template for images
+%circle-image {
+  height: 60px;
+  width: 60px;
+  border-radius: 100%;
+  margin: 0 3px;
+}
+
 // Contact page
 .contact {
   width: 100%;
@@ -33,16 +52,18 @@
           @extend %flex-row;
           .server-answer {
             color: $color_2;
-            max-width: 200px;
+            width: 200px;
             margin: 5px;
           }
           .send-mail {
-            @extend %header-btn;
+            transition: 500ms;
+            border-radius: 3px;
+            padding: 10px 15px;
             background-color: $color_2;
             border: 2px $color_1 solid;
-            color: $color_1;
+            color: black;
             font-weight: 900;
-            margin: 5px;
+            margin: 5px 3px;
             width: 200px;
             font-size: $fss;
             &:hover {
@@ -104,7 +125,8 @@
       }
     }
     .button-image {
-      @extend %circle-image;
+      border-radius: 100%;
+      margin: 0 3px;
       height: 20px;
       margin-right: 10px;
     }

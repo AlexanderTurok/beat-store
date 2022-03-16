@@ -7,7 +7,7 @@ import CartImage from '../images/cart.png';
 function Title() {
     return(
       <Link className='title' to='/'>
-        <p>Title</p>
+        <p>Beat Store</p>
       </Link>
     );
   }

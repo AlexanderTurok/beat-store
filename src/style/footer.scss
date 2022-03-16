@@ -1,3 +1,5 @@
+@import "config.scss";
+
 // Footer
 .footer {
   height: 260px;
@@ -13,6 +15,7 @@
   }
   .footer-content {
     @extend %flex-row;
+    align-items: center;
     width: 80%;
     .menu {
       @extend %flex-col;
@@ -28,6 +31,7 @@
         @extend %flex-row;
         .dot {
           color: $color_3;
+          margin: -4px 3px 0 3px;
         }
       }
     }
