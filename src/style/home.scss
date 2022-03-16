@@ -62,8 +62,15 @@
           }
         }
         .btn-add {
-          @extend %header-btn;
+          color: rgba($color_2, 0.75);
+          padding: 7.5px 10px;
+          border-radius: 3px;
+          border: 1px solid $color_1;
           background-color: $color_1;
+          &:hover {
+            transition: 500ms;
+            color: $color_2;
+          }
         }
         .play-image {
           .music-li-icon {
