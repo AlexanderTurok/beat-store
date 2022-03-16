@@ -7,6 +7,7 @@ import useAudio from "./useAudio";
 import share from "../images/share-button.png";
 import playButton from "../images/play-button.png";
 import pauseButton from "../images/pause-button.png";
+import CartImage from '../images/cart.png';
 
 function MusicLi({ item, isPlayingData, setSong, setIsPlaying }) {
   const [playing, toggle] = useAudio(require(`../music/${item.mp3Path}.mp3`));
@@ -41,7 +42,11 @@ function MusicLi({ item, isPlayingData, setSong, setIsPlaying }) {
         ))}
       </div>
       <img className="music-li-el btn-share" src={share}></img>
-      <button className="music-li-el btn-add">ADD</button>
+      <button className="music-li-el btn-add">
+        <img className="cart-image"
+             src={CartImage}></img>
+        ADD
+      </button>
     </li>
   );
 }

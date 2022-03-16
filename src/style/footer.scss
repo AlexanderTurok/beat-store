@@ -1,0 +1,41 @@
+// Footer
+.footer {
+  height: 260px;
+  width: 100%;
+  @extend %flex-col;
+  justify-content: flex-start;
+  hr {
+    background-color: $color_3;
+    border: none;
+    height: 3px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .footer-content {
+    @extend %flex-row;
+    width: 80%;
+    .menu {
+      @extend %flex-col;
+      a {
+        @extend %header-btn;
+        text-decoration: none;
+        color: $color_1;
+      }
+    }
+    .footer-col {
+      @extend %flex-col;
+      .terms-policy {
+        @extend %flex-row;
+        .dot {
+          color: $color_3;
+        }
+      }
+    }
+    .footer-image-row {
+      @extend %flex-row;
+      .soc-media-image {
+        @extend %circle-image;
+      }
+    }
+  }
+}
