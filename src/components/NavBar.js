@@ -9,7 +9,7 @@ import CartImage from '../images/cart.png';
 
 function MenuIcon() {
   return (
-    <div className= "menu-icon">
+    <div className="header-button menu-icon">
       <div className='menu-icon-bar'></div>
       <div className='menu-icon-bar'></div>
       <div className='menu-icon-bar'></div>
@@ -34,8 +34,13 @@ function Title() {
   function Shopping({ price }) {
     return (
       <Link className='header-button' to='/chekout'>
-        <img className='header-icon' src={CartImage} alt='buy'></img>
-        <p className='header-shopping-button'>${price}</p>
+        <button className='header-shopping-button'>
+          <img className='header-icon' 
+               src={CartImage} 
+               alt='buy'>
+          </img>
+          ${price}
+        </button>
       </Link>
     );
   }
@@ -63,11 +68,11 @@ function NavBar({ price }) {
         <Title />
       </div>
       <div className='header-col'>
-        <Menu closeMobileMenu={closeMobileMenu}/>
+        {width <= 1075 || <Menu />}
         <Shopping price={price}/>
-        <Loggining />
+        {width <= 1075 || <Loggining />}
         <Search />
-        {width <= 1027 && <MenuIcon />}
+        {width <= 1075 && <MenuIcon />}
       </div>
     </div>    
   )

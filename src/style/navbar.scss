@@ -2,7 +2,10 @@
 
 // header
 .header {
-  @extend %flex-row;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
   height: 60px;
   width: 100%;
   background-color: $color_1;
@@ -10,9 +13,7 @@
   top: 0;
   z-index: 1;
   .header-col {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    @extend %flex-row;
     .menu-icon {
       @extend %flex-col;
       .menu-icon-bar {
@@ -29,26 +30,34 @@
     .title {
       font-size: 44px;
       color: $color_2;
+      margin: 0 3px;
+      padding: 10px 15px;
     }
     .menu {
       @extend %flex-row;
     }
     .header-button {
       @extend %header-btn;
-      display: flex;
-      flex-direction: row;
+      @extend %flex-row;
+      align-items: center;
+      &:hover {
+        @extend %header-btn-hover;
+      }
     }
     .header-shopping-button {
-      color: $color_2;
+      @extend %flex-row;
+      align-items: center;
+      background-color: transparent;
+      border: none;
+      color: rgba($color_2, 0.75);
       font-size: $fsm;
-      padding: 10px 0;
-    }
-    .header-button:hover {
-      @extend %header-btn-hover;
+      &:hover {
+        @extend %header-btn-hover;
+      }
     }
     .header-icon {
       height: 40px;
-      width: auto;
+      width: 40px;
     }
     .header-search {
       @extend %flex-row;
@@ -81,5 +90,15 @@
         border-bottom: $color_3 2px solid;
       }
     }
+  }
+}
+
+// responsive
+@media screen and (max-width: 1074px) {
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 }
