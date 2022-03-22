@@ -63,7 +63,7 @@ function NavBar({ price }) {
   }, [handleWindowResize]);
 
   return (
-    <div className='header'>
+    <header className='header'>
       <div className='header-col'>
         <Title />
       </div>
@@ -74,7 +74,7 @@ function NavBar({ price }) {
         <Search />
         {width <= 1075 && <MenuIcon />}
       </div>
-    </div>    
+    </header>    
   )
 }
 
