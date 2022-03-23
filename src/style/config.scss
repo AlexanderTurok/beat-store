@@ -4,7 +4,7 @@ $fsm: 22px;
 $fsl: 28px;
 // Colors
 $color_1: #000;
-$color_2: #fff;
+$color_2: #e1e1e1;
 $color_3: #5e5e5e;
 $color_4: #02050e;
 // Template for DIV
@@ -23,7 +23,7 @@ $color_4: #02050e;
 // Template for button
 %header-btn {
   transition: 500ms;
-  color: #fff;
+  color: rgba($color_2, 0.75);
   font-size: $fsm;
   list-style: none;
   border-radius: 3px;
@@ -32,7 +32,7 @@ $color_4: #02050e;
 }
 %header-btn-hover {
   transition: 500ms;
-  background-color: rgba(255, 255, 255, 0.15);
+  color: $color_2;
 }
 %content-button {
   padding: 10px 15px;
@@ -65,7 +65,7 @@ $color_4: #02050e;
 // Template for images
 %circle-image {
   height: 60px;
-  width: auto;
+  width: 60px;
   border-radius: 100%;
   margin: 0 3px;
 }

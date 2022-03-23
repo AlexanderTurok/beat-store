@@ -8,25 +8,30 @@
     @extend %flex-col;
     margin-bottom: 10px;
     .load-btn {
-      width: 220px;
-      height: 45px;
-      border: 2px black solid;
-      border-radius: 3px;
+      border: none;
       font-size: $fss;
+      color: rgba($color_1, 0.6);
+      background-color: white;
+      transition: 500ms;
+      &:hover {
+        transition: 500ms;
+        color: $color_1;
+      }
     }
     .music-data {
       @extend %flex-col;
       align-items: flex-start;
+      margin: 20px 0;
       .music-li {
         @extend %flex-row;
         justify-content: space-between;
         list-style: none;
         .strong {
-          @extend %header-btn;
           color: $color_3;
           font-size: $fss;
           padding-left: 0;
           padding-right: 0;
+          margin: 3px 3px;
         }
         .music-li-el {
           margin: 0px 3px;
@@ -37,7 +42,7 @@
           min-width: 190px;
         }
         .strong-title {
-          margin-left: 52px;
+          margin-left: 4px;
         }
         .strong-time,
         .strong-bpm,
@@ -62,8 +67,24 @@
           }
         }
         .btn-add {
-          @extend %header-btn;
+          transition: 500ms;
+          color: rgba($color_2, 0.75);
+          padding: 7.5px 10px;
+          border-radius: 3px;
+          border: 1px solid $color_1;
           background-color: $color_1;
+          @extend %flex-row;
+          align-items: center;
+          &:hover {
+            transition: 500ms;
+            color: $color_2;
+          }
+          .cart-image {
+            margin-top: -3px;
+            margin-left: -5px;
+            height: 27px;
+            width: 27px;
+          }
         }
         .play-image {
           .music-li-icon {

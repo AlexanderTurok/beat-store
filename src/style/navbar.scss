@@ -2,115 +2,191 @@
 
 // header
 .header {
-  @extend %flex-row;
+  display: flex;
+  flex-direction: row;
   height: 60px;
   width: 100%;
   background-color: $color_1;
   position: sticky;
   top: 0;
   z-index: 1;
-  .header-col {
+  .pc-version {
     display: flex;
     flex-direction: row;
+    justify-content: space-around;
     align-items: center;
-    a {
-      text-decoration: none;
-    }
-    .title {
-      font-size: 44px;
-      color: $color_2;
-    }
-    .menu {
-      @extend %flex-row;
-    }
-    .header-button {
-      @extend %header-btn;
-      display: flex;
-      flex-direction: row;
-    }
-    .header-shopping-button {
-      color: $color_2;
-      font-size: $fsm;
-      padding: 10px 0;
-    }
-    .header-button:hover {
-      @extend %header-btn-hover;
-    }
-    .header-icon {
-      height: 40px;
-      width: auto;
-    }
-    .header-search {
-      @extend %flex-row;
-      position: sticky;
-      .header-search-bar {
-        height: 26px;
-        width: 200px;
-        color: $color_1;
-        font-size: $fss;
-        margin-right: 12px;
-      }
-    }
-    .list-result {
-      display: none;
-    }
-    .list-result-active {
-      @extend %flex-col;
-      margin-top: 3px;
-      align-items: flex-start;
-      background-color: $color_2;
-      border: $color_1 solid 1px;
-      width: 200px;
-      position: absolute;
-      .searched-item {
-        color: $color_3;
-        font-size: $fss;
-        margin: 2px 27px;
-        padding: 2px 5px;
-        width: 145px;
-        border-bottom: $color_3 2px solid;
-      }
-    }
-  }
-}
-
-// Footer
-.footer {
-  height: 260px;
-  width: 100%;
-  @extend %flex-col;
-  justify-content: flex-start;
-  hr {
-    background-color: $color_3;
-    border: none;
-    height: 3px;
     width: 100%;
-    margin-bottom: 20px;
-  }
-  .footer-content {
-    @extend %flex-row;
-    width: 80%;
-    .menu {
-      @extend %flex-col;
-      a {
-        @extend %header-btn;
-        text-decoration: none;
-        color: $color_1;
+    height: 60px;
+    .header-col {
+      @extend %flex-row;
+      .menu-icon {
+        display: none;
       }
-    }
-    .footer-col {
-      @extend %flex-col;
-      .terms-policy {
+      a {
+        text-decoration: none;
+      }
+      .title {
+        font-size: 44px;
+        color: $color_2;
+        margin: 0 3px;
+        padding: 10px 15px;
+      }
+      .menu {
         @extend %flex-row;
-        .dot {
+      }
+      .login {
+        @extend %header-btn;
+        align-items: center;
+        &:hover {
+          @extend %header-btn-hover;
+        }
+      }
+      .header-button {
+        @extend %header-btn;
+        @extend %flex-row;
+        align-items: center;
+        &:hover {
+          @extend %header-btn-hover;
+        }
+      }
+      .header-shopping-button {
+        @extend %flex-row;
+        align-items: center;
+        background-color: transparent;
+        border: none;
+        color: rgba($color_2, 0.75);
+        font-size: $fsm;
+        &:hover {
+          @extend %header-btn-hover;
+        }
+      }
+      .header-icon {
+        height: 40px;
+        width: 40px;
+      }
+      .header-search {
+        @extend %flex-row;
+        position: sticky;
+        .header-search-bar {
+          height: 26px;
+          width: 200px;
+          color: $color_1;
+          font-size: $fss;
+          margin-right: 12px;
+        }
+      }
+      .list-result {
+        display: none;
+      }
+      .list-result-active {
+        @extend %flex-col;
+        margin-top: 3px;
+        align-items: flex-start;
+        background-color: $color_2;
+        border: $color_1 solid 1px;
+        width: 200px;
+        position: absolute;
+        .searched-item {
           color: $color_3;
+          font-size: $fss;
+          margin: 2px 27px;
+          padding: 2px 5px;
+          width: 145px;
+          border-bottom: $color_3 2px solid;
         }
       }
     }
-    .footer-image-row {
-      @extend %flex-row;
-      .soc-media-image {
-        @extend %circle-image;
+  }
+  .mobile-version {
+    display: none;
+  }
+}
+
+// responsive
+@media screen and (max-width: 1075px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    .mobile-version {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+      width: 100%;
+      align-items: center;
+      .login {
+        background-color: $color_1;
+        transition: 500ms;
+        color: rgba($color_2, 0.75);
+        font-size: $fsm;
+        padding: 10px 15px;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        text-decoration: none;
+        &:hover {
+          transition: 500ms;
+          color: rgba($color_2, 1);
+        }
+      }
+      a {
+        text-decoration: none;
+      }
+      .menu {
+        display: flex;
+        flex-direction: column;
+        background-color: $color_1;
+        width: 100%;
+        margin: 0 auto;
+        .header-button {
+          transition: 500ms;
+          color: rgba($color_2, 0.75);
+          font-size: $fsm;
+          list-style: none;
+          border-radius: 3px;
+          padding: 10px 15px;
+          margin: 0 auto;
+          width: 100%;
+          text-align: center;
+          list-style-type: none;
+          &:hover {
+            transition: 500ms;
+            color: rgba($color_2, 1);
+          }
+        }
+      }
+    }
+    .pc-version {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .header-col {
+        .menu {
+          display: none;
+          .header-button {
+            display: none;
+          }
+        }
+        .login,
+        .header-button {
+          display: none;
+        }
+        .menu-icon {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 15px;
+          margin: 0 3px;
+          .menu-icon-bar {
+            width: 35px;
+            height: 5px;
+            background-color: $color_2;
+            margin: 3.5px 0;
+            border-radius: 2px;
+          }
+        }
       }
     }
   }
