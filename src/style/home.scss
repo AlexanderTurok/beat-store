@@ -21,6 +21,7 @@
     .music-data {
       @extend %flex-col;
       align-items: flex-start;
+      margin: 20px 0;
       .music-li {
         @extend %flex-row;
         justify-content: space-between;

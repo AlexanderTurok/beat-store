@@ -28,7 +28,7 @@ function Title() {
   }
   function Loggining() {
     return (
-      <Link className='header-button login' to='/logining'>
+      <Link className='login' to='/logining'>
         <p>LOG IN</p>
       </Link>
     );

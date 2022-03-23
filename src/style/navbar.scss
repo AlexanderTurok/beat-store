@@ -11,7 +11,8 @@
   top: 0;
   z-index: 1;
   .pc-version {
-    @extend %flex-row;
+    display: flex;
+    flex-direction: row;
     justify-content: space-around;
     align-items: center;
     width: 100%;
@@ -32,6 +33,13 @@
       }
       .menu {
         @extend %flex-row;
+      }
+      .login {
+        @extend %header-btn;
+        align-items: center;
+        &:hover {
+          @extend %header-btn-hover;
+        }
       }
       .header-button {
         @extend %header-btn;
@@ -108,7 +116,7 @@
       width: 100%;
       align-items: center;
       .login {
-        background-color: $color_4;
+        background-color: $color_1;
         transition: 500ms;
         color: rgba($color_2, 0.75);
         font-size: $fsm;
@@ -128,7 +136,7 @@
       .menu {
         display: flex;
         flex-direction: column;
-        background-color: $color_4;
+        background-color: $color_1;
         width: 100%;
         margin: 0 auto;
         .header-button {
@@ -151,7 +159,7 @@
     }
     .pc-version {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       justify-content: space-between;
       .header-col {
         .menu {
