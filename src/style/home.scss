@@ -44,10 +44,10 @@
         .strong-title {
           margin-left: 4px;
         }
-        .strong-time,
+        .strong-key,
         .strong-bpm,
         .music-li-p {
-          min-width: 45px;
+          min-width: 48px;
         }
         .strong-tags,
         .div-tags {
@@ -112,11 +112,9 @@
             width: 24px;
             color: #000;
             position: absolute;
-            top: 34px;
-            left: 34px;
-            border-radius: 100%;
             top: 10px;
-            left: 10px;
+            left: 14px;
+            border-radius: 100%;
             border: 1px rgba($color_1, $alpha: 0.7) solid;
             &:hover {
               border: 1px white solid;
