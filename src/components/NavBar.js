@@ -33,16 +33,16 @@ function Title() {
       </Link>
     );
   }
-  function Shopping() {
+  function Shopping({ text }) {
     return (
-      <Link className='header-button' to='/chekout'>
-        <button className='header-shopping-button'>
+      <Link className='shopping' to='/chekout'>
+        <p className='header-shopping-button'>
           <img className='header-icon' 
                src={CartImage} 
                alt='buy'>
           </img>
-          $0.00
-        </button>
+          {text}
+        </p>
       </Link>
     );
   }
@@ -65,7 +65,7 @@ function NavBar() {
         </div>
         <div className='header-col'>
           <Menu />
-          <Shopping />
+          <Shopping text={"$0.00"}/>
           <Loggining />
           <Search />
           <MenuIcon handleClick={handleClick}/>
@@ -74,6 +74,7 @@ function NavBar() {
       <div className='mobile-version'>
         {click && <Loggining />}
         {click && <Menu />}
+        {click && <Shopping text={"CART"}/>}
       </div>
     </header> 
   )

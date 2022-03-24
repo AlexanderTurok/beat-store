@@ -9,12 +9,14 @@
   .music-data {
     @extend %flex-col;
     align-items: flex-start;
+    width: 100%;
     .music-li {
       @extend %flex-row;
       justify-content: space-between;
       list-style: none;
       color: $color_2;
-      min-width: 800px;
+      width: 80%;
+      flex-wrap: wrap;
       .play-image {
         position: relative;
         top: 0;

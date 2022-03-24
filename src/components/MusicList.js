@@ -9,7 +9,7 @@ function Strongs() {
   return (
     <li className="music-li">
       <strong className='strong strong-title'>TITLE</strong>
-      <strong className='strong strong-time'>KEY</strong>
+      <strong className='strong strong-key'>KEY</strong>
       <strong className='strong strong-bpm'>BPM</strong>
       <strong className='strong strong-tags'>TAGS</strong>
       <strong className='strong strong-options'>OPTIONS</strong>

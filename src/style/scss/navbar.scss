@@ -73,6 +73,7 @@
           color: $color_1;
           font-size: $fss;
           margin-right: 12px;
+          padding-left: 5px;
         }
       }
       .list-result {
@@ -81,17 +82,18 @@
       .list-result-active {
         @extend %flex-col;
         margin-top: 3px;
-        align-items: flex-start;
-        background-color: $color_2;
+        background-color: white;
         border: $color_1 solid 1px;
         width: 200px;
         position: absolute;
+        list-style: none;
         .searched-item {
           color: $color_3;
           font-size: $fss;
-          margin: 2px 27px;
-          padding: 2px 5px;
-          width: 145px;
+          white-space: nowrap;
+          margin: 2px 0px;
+          padding: 2px 0px;
+          width: 95%;
           border-bottom: $color_3 2px solid;
         }
       }
@@ -115,6 +117,28 @@
       margin: 0 auto;
       width: 100%;
       align-items: center;
+      .shopping {
+        width: 100%;
+        .header-shopping-button {
+          font-family: "Work Sans", sans-serif;
+          background-color: $color_1;
+          transition: 500ms;
+          color: rgba($color_2, 0.75);
+          font-size: $fsm;
+          padding: 10px 15px;
+          width: 100%;
+          margin: 0 auto;
+          text-align: center;
+          text-decoration: none;
+          &:hover {
+            transition: 500ms;
+            color: rgba($color_2, 1);
+          }
+          img {
+            display: none;
+          }
+        }
+      }
       .login {
         background-color: $color_1;
         transition: 500ms;
@@ -162,6 +186,12 @@
       flex-direction: row;
       justify-content: space-between;
       .header-col {
+        .shopping {
+          display: none;
+        }
+        .title {
+          padding-right: 0;
+        }
         .menu {
           display: none;
           .header-button {
