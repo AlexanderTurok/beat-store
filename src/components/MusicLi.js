@@ -9,7 +9,7 @@ import playButton from "../images/play-button.png";
 import pauseButton from "../images/pause-button.png";
 import CartImage from '../images/cart.png';
 
-function MusicLi({ item, isPlayingData, setSong, setIsPlaying }) {
+function MusicLi({ item, setSong, setIsPlaying }) {
   const [playing, toggle] = useAudio(require(`../music/${item.mp3Path}.mp3`));
 
   const handleClick = () => {
@@ -17,7 +17,6 @@ function MusicLi({ item, isPlayingData, setSong, setIsPlaying }) {
     setSong(item);
     toggle();
     setIsPlaying();
-    console.log(isPlayingData.isPlaying)
   }
 
   return(
@@ -53,8 +52,7 @@ function MusicLi({ item, isPlayingData, setSong, setIsPlaying }) {
 
 const mapStateToProps = state => {
   return {
-    songData: state.song,
-    isPlayingData: state.isPlaying
+    songData: state.song
   }
 }
 const mapDispatchToProps = dispatch => {
