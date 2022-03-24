@@ -43,3 +43,22 @@
     }
   }
 }
+
+// responsive
+@media screen and (max-width: 1000px) {
+  .footer {
+    hr {
+      background-color: $color_3;
+      border: none;
+      height: 3px;
+      width: 100%;
+      margin-bottom: 20px;
+      padding: 1px;
+    }
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}

@@ -22,17 +22,17 @@
       @extend %flex-col;
       align-items: flex-start;
       margin: 20px 0;
+      .strong {
+        color: $color_3;
+        font-size: $fss;
+        padding-left: 0;
+        padding-right: 0;
+        margin: 3px 3px;
+      }
       .music-li {
         @extend %flex-row;
         justify-content: space-between;
         list-style: none;
-        .strong {
-          color: $color_3;
-          font-size: $fss;
-          padding-left: 0;
-          padding-right: 0;
-          margin: 3px 3px;
-        }
         .music-li-el {
           margin: 0px 3px;
           font-size: $fss;
@@ -120,6 +120,35 @@
               border: 1px white solid;
             }
           }
+        }
+      }
+    }
+  }
+}
+
+//responsive
+@media screen and (max-width: 685px) {
+  .home {
+    .music-list {
+      .strong-key,
+      .strong-bpm,
+      .music-li-p {
+        display: none;
+      }
+    }
+  }
+}
+@media screen and (max-width: 535px) {
+  .home {
+    .music-list {
+      .strong-tags {
+        display: none;
+      }
+
+      .div-tags {
+        display: none;
+        .music-li-tags {
+          display: none;
         }
       }
     }

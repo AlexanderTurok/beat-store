@@ -1,24 +1,5 @@
 @import "config.scss";
 
-// Template input
-%input {
-  border: $color_2 2px solid;
-  background-color: transparent;
-  color: $color_2;
-  font-size: $fsm;
-  margin: 5px 5px;
-  &::placeholder {
-    color: $color_2;
-  }
-}
-// Template for images
-%circle-image {
-  height: 60px;
-  width: 60px;
-  border-radius: 100%;
-  margin: 0 3px;
-}
-
 // Contact page
 .contact {
   width: 100%;
@@ -27,6 +8,7 @@
   .contact-content {
     @extend %flex-row;
     align-items: flex-start;
+    flex-wrap: wrap;
     .contact-col {
       @extend %flex-col;
       .contact-form {
