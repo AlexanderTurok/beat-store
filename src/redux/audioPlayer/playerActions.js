@@ -6,37 +6,37 @@ import {
   SET_SONGS_ARRAY,
 } from './playerTypes';
 
-export const setCurrentSong = (song) => {
+export const setCurrentSong = (data) => {
   return {
     type: SET_CURRENT_SONG,
     payload: data
   }
 };
 
-export const toggleRandom = (song) => {
+export const toggleRandom = (data) => {
   return {
     type: TOGGLE_RANDOM,
-    payload: song
+    payload: data
   }
 };
 
-export const toggleRepeat = (song) => {
+export const toggleRepeat = (data) => {
   return {
     type: TOGGLE_REPEAT,
-    payload: song
+    payload: data
   }
 };
 
-export const togglePlaying = (song) => {
+export const togglePlaying = (data) => {
   return {
     type: TOGGLE_PLAYING,
-    payload: song
+    payload: data
   }
 };
 
-export const setSongsArray = (array) => {
+export const setSongsArray = (data) => {
   return {
     type: SET_SONGS_ARRAY,
-    payload: array
+    payload: data
   }
 };

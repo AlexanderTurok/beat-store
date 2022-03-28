@@ -20,28 +20,28 @@ function playerReducer(state = initialState, action) {
     case SET_SONGS_ARRAY:
       return {
         ...state,
-        songs: action.data,
+        songs: action.payload,
       }
     case SET_CURRENT_SONG:
       return {
         ...state,
-        currentSong: action.data,
+        currentSong: action.payload,
         playing: true,
       }
     case TOGGLE_RANDOM:
       return {
         ...state,
-        random: action.data,
+        random: action.payload,
       }
     case TOGGLE_REPEAT:
       return {
         ...state,
-        repeat: action.data,
+        repeat: action.payload,
       }
     case TOGGLE_PLAYING:
       return {
         ...state,
-        playing: action.data,
+        playing: action.payload,
       }
     default: return state;
   }
