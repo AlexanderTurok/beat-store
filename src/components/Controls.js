@@ -1,14 +1,11 @@
 
-
+import { useState, useEffect } from "react";
 import { connect } from "react-redux"
 import { 
   setCurrentSong,
-  setSongsArray,
   togglePlaying,
-  toggleRandom,
   toggleRepeat
 } from "../redux/audioPlayer/playerActions"
-
 
 function Controls({ playerData }) {
   // states
@@ -37,7 +34,16 @@ function Controls({ playerData }) {
 
   const toggleAudio = () => {
     audio.current.paused ?
-      audio.current.play() : audio.current.pause()
+    audio.current.play() : audio.current.pause()
+  }
+
+  const handlePlay = () => {
+    togglePlaying();
+    toggleAudio();
+  }
+
+  const handleEnd = (e) => {
+    // ------------------
   }
 
   useEffect(() => {
@@ -49,27 +55,41 @@ function Controls({ playerData }) {
       <audio 
         ref={audio}
         preload={true}
-        src
+        onEnded={handleEnd}
+        src={itemsData.items[current].mp3Path}
+        onCanPlay={(e) => setDuration(e.tager.duration)}
+        onTimeUpdate={(e) => setCurrentTime(e.target.currentTime)}
       />
+      <div className="control-buttons">
+        <button onClick={goToPreviousSong}>
+          Prev Song
+        </button>
+        <button onClick={goToNextSong}>
+          Prev Song
+        </button>
+        <button onClick={handlePlay}>
+          Play / Pause
+        </button>
+        <button onClick={toggleRepeat}>
+          Repeat
+        </button>
+      </div>
     </div>
   )
 }
 
-
-
 const mapStateToProps = (state) => {
   return {
-    playerData: state
+    playerData: state,
+    itemsData: state.items
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     setCurrentSong: () => dispatch(setCurrentSong()),
-    toggleRandom: () => dispatch(toggleRandom()),
     toggleRepeat: () => dispatch(toggleRepeat()),
-    togglePlaying: () => dispatch(togglePlaying()),
-    setSongsArray: () => dispatch(setSongsArray())
+    togglePlaying: () => dispatch(togglePlaying())
   }
 }
 
