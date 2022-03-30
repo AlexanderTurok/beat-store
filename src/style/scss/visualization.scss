@@ -15,8 +15,6 @@
       justify-content: space-between;
       list-style: none;
       color: $color_2;
-      width: 80%;
-      flex-wrap: wrap;
       .play-image {
         position: relative;
         top: 0;
@@ -63,6 +61,7 @@
         background-color: $color_4;
         @extend %flex-row;
         align-items: center;
+        margin: 0 10px;
         &:hover {
           transition: 500ms;
           color: $color_2;
@@ -71,6 +70,23 @@
           margin-top: -4px;
           height: 40px;
           width: 40px;
+        }
+      }
+    }
+  }
+}
+
+//responsive
+@media screen and (max-width: 580px) {
+  .visualization-section {
+    .music-data {
+      .music-li {
+        flex-wrap: wrap;
+        .music-li-title {
+          margin: 10px auto;
+        }
+        .btn-add {
+          margin: 10px auto;
         }
       }
     }
