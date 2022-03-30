@@ -74,6 +74,12 @@ function Controls({ playerData }) {
           Repeat
         </button>
       </div>
+      <input
+          type="range"
+          name="progresBar"
+          onChange={handleProgress}
+          value={duration ? (currentTime * 100) / duration : 0}
+        />
     </div>
   )
 }
