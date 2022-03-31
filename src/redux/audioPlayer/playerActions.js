@@ -18,9 +18,8 @@ export const toggleRepeat = (data) => {
   }
 };
 
-export const togglePlaying = (data) => {
+export const togglePlaying = () => {
   return {
-    type: TOGGLE_PLAYING,
-    payload: data
+    type: TOGGLE_PLAYING
   }
 };

@@ -1,14 +1,13 @@
 
 import { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
-import { fetchItems } from "../redux/apiData/apiActions";
 import { 
   setCurrentSong,
   togglePlaying,
   toggleRepeat
 } from "../redux/audioPlayer/playerActions"
 
-function Controls({ playerData, itemsData, fetchItems }) {
+function Controls({ playerData, itemsData }) {
   // states
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
@@ -58,7 +57,7 @@ function Controls({ playerData, itemsData, fetchItems }) {
   }
 
   useEffect(() => {
-    playerData.playing && toggleAudio();
+    playerData.isPlaying && toggleAudio();
   }, [playerData.currentSong])
 
   return (
@@ -97,7 +96,7 @@ function Controls({ playerData, itemsData, fetchItems }) {
 
 const mapStateToProps = (state) => {
   return {
-    playerData: state,
+    playerData: state.player,
     itemsData: state.items
   }
 }
@@ -106,8 +105,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setCurrentSong: () => dispatch(setCurrentSong()),
     toggleRepeat: () => dispatch(toggleRepeat()),
-    togglePlaying: () => dispatch(togglePlaying()),
-    fetchItems: () => dispatch(fetchItems())
+    togglePlaying: () => dispatch(togglePlaying())
   }
 }
 

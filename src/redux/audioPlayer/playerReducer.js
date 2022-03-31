@@ -27,7 +27,7 @@ function playerReducer(state = initialState, action) {
     case TOGGLE_PLAYING:
       return {
         ...state,
-        playing: action.payload,
+        isPlaying: !state.isPlaying,
       }
     default: return state;
   }
