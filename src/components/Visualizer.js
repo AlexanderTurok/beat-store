@@ -2,7 +2,7 @@
 import { useRef, useEffect } from 'react';
 import { connect } from 'react-redux';
 
-function Visualizer({ songData, isPlayingData }) {
+function Visualizer({ songData, playerData }) {
   const canvasRef = useRef(null);
   useEffect(() => {
     // basic setup
@@ -42,9 +42,9 @@ function Visualizer({ songData, isPlayingData }) {
     };
 
     draw(); 
-    isPlayingData.isPlaying ? audio.play() : audio.pause()
+    playerData.isPlaying ? audio.play() : audio.pause()
 
-  }, [isPlayingData.isPlaying, songData.song.mp3Path]);     
+  }, [playerData.isPlaying, songData.song.mp3Path]);     
                     
   return (
     <div>
@@ -57,7 +57,7 @@ function Visualizer({ songData, isPlayingData }) {
 const mapStateToProps = (state) => {
   return {
     songData: state.song,
-    isPlayingData: state.isPlaying
+    playerData: state.player
   }
 }
 

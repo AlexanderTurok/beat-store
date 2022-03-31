@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { fetchItems } from "../redux/apiData/apiActions";
+import Controls from "./Controls";
 
 import MusicLi from "./MusicLi";
 
@@ -35,7 +36,8 @@ function MusicList({ itemsData, fetchItems }) {
           itemsData.loading) ? (<div>Loading...</div>) : (
             itemsData.items.slice(0, numOfSongs).map((item) => 
               ( <MusicLi key={item.id} item={item}/> )
-            ) 
+            ), 
+            <Controls />
           )
         }    
       </ul>
@@ -43,6 +45,7 @@ function MusicList({ itemsData, fetchItems }) {
               onClick={loadMoreSongs}>
         {"<<< Load More Tracks >>>"}
       </button>
+      
     </div>
   );
 }

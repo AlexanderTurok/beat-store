@@ -7,7 +7,7 @@ import {
 const initialState = {
   currentSong: 0,
   repeat: false,
-  playing: false,
+  isPlaying: false,
   audio: null,
 }
 
