@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 function Visualizer({ songData, playerData }) {
   const canvasRef = useRef(null);
-  
+
   const WIDTH = 300;
   const HEIGHT = 150;
 
@@ -49,10 +49,7 @@ function Visualizer({ songData, playerData }) {
   }, [playerData.isPlaying, songData.song.mp3Path]);     
                     
   return (
-    <div>
-      <canvas ref={canvasRef}>
-      </canvas>
-    </div>
+    <canvas ref={canvasRef} />
   );
 }
 

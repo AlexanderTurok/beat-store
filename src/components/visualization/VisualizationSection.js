@@ -6,7 +6,7 @@ import Visualizer from "./Visualizer";
 
 function VisualizationSection({ searchData, songData }) {
   let data;
-  // if we didnt search song, show first item from fetched data
+  // if we didnt search song, show first element from fetched data
   if (searchData.searchItem === undefined) data = [songData.song];
   else data = [searchData.searchItem]
   
@@ -17,9 +17,7 @@ function VisualizationSection({ searchData, songData }) {
           <MusicLi key={item.id} item={item}/>
         ))}
       </ul> 
-      <div>
-        <Visualizer />
-      </div>
+      <Visualizer />
     </div>
   );
 }

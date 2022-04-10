@@ -17,8 +17,7 @@
     align-items: center;
     width: 100%;
     height: 60px;
-    .header-col {
-      @extend %flex-row;
+    
       .menu-icon {
         display: none;
       }
@@ -30,6 +29,7 @@
         color: $color_2;
         margin: 0 3px;
         padding: 10px 15px;
+        margin-right: auto;
       }
       .menu {
         @extend %flex-row;
@@ -103,7 +103,7 @@
   .mobile-version {
     display: none;
   }
-}
+
 
 // responsive
 @media screen and (max-width: 1075px) {
@@ -186,7 +186,7 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      .header-col {
+      
         .shopping {
           display: none;
         }
@@ -214,4 +214,4 @@
       }
     }
   }
-}
+
