@@ -9,7 +9,7 @@ import Beats from './pages/Beats';
 import SoundKits from './pages/SoundKits';
 import Contact from './pages/Contact';
 import CheckOut from './pages/CheckOut';
-import VisualizationSection from './components/VisualizationSection';
+import VisualizationSection from './components/visualization/VisualizationSection';
 
 function App() {
   return (

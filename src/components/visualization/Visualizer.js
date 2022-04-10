@@ -4,15 +4,17 @@ import { connect } from 'react-redux';
 
 function Visualizer({ songData, playerData }) {
   const canvasRef = useRef(null);
+  
+  const WIDTH = 300;
+  const HEIGHT = 150;
+
   useEffect(() => {
-    // basic setup
-    const WIDTH = 300;
-    const HEIGHT = 150;
+    // canvas setup
     const canvas = canvasRef.current;
     const canvasCtx = canvas.getContext('2d');
     
     const audio = new Audio(require(
-      `../music/${songData.song.mp3Path}.mp3`));
+      `../../music/${songData.song.mp3Path}.mp3`));
     let audioCtx = new AudioContext();
     
     const analyser = audioCtx.createAnalyser();
