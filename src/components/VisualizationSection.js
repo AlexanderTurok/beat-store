@@ -1,7 +1,7 @@
 
 import { connect } from "react-redux";
 
-import MusicLi from './MusicLi';
+import MusicLi from './player/MusicLi';
 import Visualizer from "./Visualizer";
 
 function VisualizationSection({ searchData, songData }) {

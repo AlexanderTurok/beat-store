@@ -5,7 +5,7 @@ import {
   setCurrentSong,
   togglePlaying,
   toggleRepeat
-} from "../redux/audioPlayer/playerActions"
+} from "../../redux/audioPlayer/playerActions"
 
 function Controls({ playerData, itemsData }) {
   // states

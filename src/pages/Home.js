@@ -1,5 +1,5 @@
 
-import MusicList from "../components/MusicList"
+import MusicList from "../components/player/MusicList"
 
 function Home({}) {
   return (

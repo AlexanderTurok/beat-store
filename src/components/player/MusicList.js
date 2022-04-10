@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { fetchItems } from "../redux/apiData/apiActions";
+import { fetchItems } from "../../redux/apiData/apiActions";
 import Controls from "./Controls";
 
 import MusicLi from "./MusicLi";
