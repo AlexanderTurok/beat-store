@@ -2,7 +2,7 @@
 import { connect } from "react-redux";
 import { setSong } from "../redux/song/songActions";
 
-import share from "../images/share-button.png";
+import { BsFillShareFill as Share } from "react-icons/bs";
 import { BsPlayCircle as PlayButton } from "react-icons/bs";
 import { BsPauseCircle as PauseButton } from "react-icons/bs";
 import { togglePlaying } from "../redux/audioPlayer/playerActions";
@@ -39,7 +39,7 @@ function MusicLi({ item, setSong, playerData, togglePlaying }) {
           </p>
         ))}
       </div>
-      <img className="music-li-el btn-share" src={share}></img>
+      <Share className="music-li-el btn-share" />
       <button className="music-li-el btn-add">
         <Cart className="cart-image"/>
         ADD

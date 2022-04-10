@@ -98,6 +98,11 @@
             transition: 300ms;
           }
         }
+        .btn-share {
+          height: 36px;
+          width: 36px;
+          color: $color_1;
+        }
         .play-image:hover {
           position: relative;
           top: 0;
