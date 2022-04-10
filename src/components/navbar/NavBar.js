@@ -12,11 +12,11 @@ import useWindowWidth from '../hooks/useWindowWidth';
 function NavBar() {
   // Get width of window
   const [width] = useWindowWidth();
-  // Clicking on menu icon staff
+  // Pop up menu-icon staff
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
-  // When we resize wondow > 1075 menu disappers
+  // If window width > 1075 - close menu
   if (width > 1075 && click == true) closeMobileMenu();
 
   return (
@@ -24,7 +24,7 @@ function NavBar() {
       <div className='pc-version'>
         <Title />
         <Menu />
-        <Shopping text={"$0.00"}/>
+        <Shopping text={"$0.00"} />
         <Login />
         <Search />
         <MenuIcon 
@@ -35,7 +35,7 @@ function NavBar() {
       <div className='mobile-version'>
         {click && <Login />}
         {click && <Menu />}
-        {click && <Shopping text={"CART"}/>}
+        {click && <Shopping text={"CART"} />}
       </div>
     </header> 
   )
