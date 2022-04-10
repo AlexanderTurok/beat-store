@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState } from "react";
 import { FiMenu as MenuIcon } from "react-icons/fi";
 
-import Menu from "../Menu";
+import Menu from "./Menu";
 import Search from "../Search";
 import useWindowWidth from '../useWindowWidth';
 

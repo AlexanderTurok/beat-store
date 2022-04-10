@@ -1,5 +1,5 @@
 
-import Menu from "./Menu";
+import Menu from "./navbar/Menu";
 // img
 import InstagramIcon from '../images/ig-icon.png';
 import FacebookIcon from '../images/fb-icon.png';
