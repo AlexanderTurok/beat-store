@@ -1,15 +1,15 @@
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import NavBar from './components/NavBar';
-import Footer from './components/Footer';
+import NavBar from './components/navbar/NavBar';
+import Footer from './components/footer/Footer';
 import Home from './pages/Home';
 import About from './pages/About';
 import Beats from './pages/Beats';
 import SoundKits from './pages/SoundKits';
 import Contact from './pages/Contact';
 import CheckOut from './pages/CheckOut';
-import VisualizationSection from './components/VisualizationSection';
+import VisualizationSection from './components/visualization/VisualizationSection';
 
 function App() {
   return (

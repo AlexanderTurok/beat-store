@@ -1,17 +1,20 @@
 
-import Menu from "./Menu";
+import Menu from "../navbar/Menu";
 // img
-import InstagramIcon from '../images/ig-icon.png';
-import FacebookIcon from '../images/fb-icon.png';
-import TwitterIcon from '../images/twitter-icon.png';
-import YTIcon from '../images/yt-icon.png';
-import SCIcon from '../images/sc-icon.png';
+import InstagramIcon from '../../images/ig-icon.png';
+import FacebookIcon from '../../images/fb-icon.png';
+import TwitterIcon from '../../images/twitter-icon.png';
+import YTIcon from '../../images/yt-icon.png';
+import SCIcon from '../../images/sc-icon.png';
 
 function LinkImage({ link, imgLink }) {
   return (
     <div>
       <a href={link}>
-        <img  className='soc-media-image' src={imgLink} />
+        <img 
+          className='soc-media-image'
+          src={imgLink}
+        />
       </a>
     </div>
   );
