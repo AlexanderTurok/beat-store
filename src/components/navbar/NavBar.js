@@ -1,23 +1,13 @@
 
 import { Link } from 'react-router-dom';
 import { useState } from "react";
+import { FiMenu as MenuIcon } from "react-icons/fi";
 
-import Menu from "./Menu";
-import Search from "./Search";
-import useWindowWidth from './useWindowWidth';
+import Menu from "../Menu";
+import Search from "../Search";
+import useWindowWidth from '../useWindowWidth';
 
 import { GiShoppingCart as Cart } from "react-icons/gi";
-
-function MenuIcon({ handleClick }) {
-  return (
-    <div className="menu-icon"
-         onClick={() => handleClick()}>
-      <div className='menu-icon-bar'></div>
-      <div className='menu-icon-bar'></div>
-      <div className='menu-icon-bar'></div>
-    </div>
-  );
-}
 
 function Title() {
     return(
@@ -65,7 +55,10 @@ function NavBar() {
           <Shopping text={"$0.00"}/>
           <Loggining />
           <Search />
-          <MenuIcon handleClick={handleClick}/>
+          <MenuIcon 
+            className='menu-icon'
+            onClick={() => handleClick()} 
+          />
         </div>
       </div>
       <div className='mobile-version'>
