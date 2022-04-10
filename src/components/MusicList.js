@@ -36,10 +36,14 @@ function MusicList({ itemsData, fetchItems }) {
           itemsData.loading) ? (<div>Loading...</div>) : (
             itemsData.items.slice(0, numOfSongs).map((item) => 
               ( <MusicLi key={item.id} item={item}/> )
-            ), 
-            <Controls />
+            ) 
           )
         }    
+        {itemsData.error ? (<h2>{itemsData.error.message}</h2>) : (
+          itemsData.loading) ? (<div>Loading...</div>) : (
+            <Controls />
+          )
+        }   
       </ul>
       <button className="load-btn"
               onClick={loadMoreSongs}>

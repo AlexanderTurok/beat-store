@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import { setSong } from "../redux/song/songActions";
 
 import share from "../images/share-button.png";
-import playButton from "../images/play-button.png";
-import pauseButton from "../images/pause-button.png";
+import { BsPlayCircle as PlayButton } from "react-icons/bs";
+import { BsPauseCircle as PauseButton } from "react-icons/bs";
 import { togglePlaying } from "../redux/audioPlayer/playerActions";
 import { GiShoppingCart as Cart } from "react-icons/gi";
 
@@ -19,12 +19,14 @@ function MusicLi({ item, setSong, playerData, togglePlaying }) {
   return(
     <li className="music-li"
         onClick={() => setSong(item)}>
-      <div className="play-image">
+      <div 
+        className="play-image"
+        onClick={handleClick} >
         <img className="music-li-el music-li-icon"
              src={require(`../images/${item.picturePath}.jpg`)}/>
-        <img className="play-button"
-             src={playerData.isPlaying ? pauseButton : playButton}
-             onClick={handleClick} />
+        {playerData.isPlaying ? 
+          <PauseButton className="play-button"/> : 
+          <PlayButton className="play-button"/>}
       </div>
       <p className="music-li-el music-li-title">{item.name}</p>
       <p className="music-li-el music-li-p">{item.key}</p>
