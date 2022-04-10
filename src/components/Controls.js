@@ -1,13 +1,13 @@
 
-import { useState, useEffect } from "react";
-import { connect } from "react-redux"
+import { useState, useEffect, useRef } from "react";
+import { connect } from "react-redux";
 import { 
   setCurrentSong,
   togglePlaying,
   toggleRepeat
 } from "../redux/audioPlayer/playerActions"
 
-function Controls({ playerData }) {
+function Controls({ playerData, itemsData }) {
   // states
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
@@ -20,14 +20,16 @@ function Controls({ playerData }) {
     const minutes = ~~(sec / 60);
     const seconds = ~~(sec % 60);
 
-    minutes < 10 ? `$0${minutes}` : minutes;
-    seconds < 10 ? `$0${seconds}` : seconds;
+    const returendMinutes = minutes < 10 ? 
+      `$0${minutes}` : minutes;
+    const returendSeconds = seconds < 10 ? 
+      `$0${seconds}` : seconds;
 
-    return `${minutes}:${seconds}`
+    return `${returendMinutes}:${returendSeconds}`
   }
 
   const handleProgress = (e) => {
-    let compute = (e.target.value * dur) / 100;
+    let compute = (e.target.value * duration) / 100;
     setCurrentTime(compute);
     audio.current.currentTime = compute;
   }
@@ -46,17 +48,25 @@ function Controls({ playerData }) {
     // ------------------
   }
 
+  const goToNextSong = () => {
+    // ------------------
+  }
+
+  const goToPreviousSong = () => {
+    // ------------------
+  }
+
   useEffect(() => {
-    playerData.playing && toggleAudio();
-  }, [currentSong])
+    playerData.isPlaying && toggleAudio();
+  }, [playerData.currentSong])
 
   return (
     <div className="audio-player">
       <audio 
         ref={audio}
-        preload={true}
+        preload="metadata"
         onEnded={handleEnd}
-        src={itemsData.items[current].mp3Path}
+        // src={itemsData.items[playerData.currentSong].mp3Path}
         onCanPlay={(e) => setDuration(e.tager.duration)}
         onTimeUpdate={(e) => setCurrentTime(e.target.currentTime)}
       />
@@ -74,13 +84,19 @@ function Controls({ playerData }) {
           Repeat
         </button>
       </div>
+      <input
+          type="range"
+          name="progresBar"
+          onChange={handleProgress}
+          value={duration ? (currentTime * 100) / duration : 0}
+        />
     </div>
   )
 }
 
 const mapStateToProps = (state) => {
   return {
-    playerData: state,
+    playerData: state.player,
     itemsData: state.items
   }
 }

@@ -7,7 +7,7 @@ import {
 const initialState = {
   currentSong: 0,
   repeat: false,
-  playing: false,
+  isPlaying: false,
   audio: null,
 }
 
@@ -27,7 +27,7 @@ function playerReducer(state = initialState, action) {
     case TOGGLE_PLAYING:
       return {
         ...state,
-        playing: action.payload,
+        isPlaying: !state.isPlaying,
       }
     default: return state;
   }
