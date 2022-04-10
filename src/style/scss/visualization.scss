@@ -27,10 +27,18 @@
           left: 0;
         }
         .play-button {
-          height: 60px;
-          width: 60px;
-          color: #000;
-          @extend %play-button;
+          transition: 300ms;
+          height: 72px;
+          width: 72px;
+          color: rgba($color_1, $alpha: 0.7);
+          position: absolute;
+          top: 30px;
+          left: 30px;
+          border-radius: 100%;
+          &:hover {
+            transition: 300ms;
+            color: $color_2;
+          }
         }
       }
       .music-li-el {

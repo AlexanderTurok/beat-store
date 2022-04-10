@@ -95,7 +95,13 @@
           }
           .play-button {
             display: none;
+            transition: 300ms;
           }
+        }
+        .btn-share {
+          height: 36px;
+          width: 36px;
+          color: $color_1;
         }
         .play-image:hover {
           position: relative;
@@ -109,17 +115,16 @@
             left: 0;
           }
           .play-button {
+            transition: 300ms;
             display: block;
-            height: 24px;
-            width: 24px;
-            color: #000;
+            height: 32px;
+            width: 32px;
+            color: rgba($color_1, $alpha: 0.7);
             position: absolute;
-            top: 10px;
-            left: 14px;
-            border-radius: 100%;
-            border: 1px rgba($color_1, $alpha: 0.7) solid;
+            top: 7px;
+            left: 8px;
             &:hover {
-              border: 1px white solid;
+              color: $color_2;
             }
           }
         }

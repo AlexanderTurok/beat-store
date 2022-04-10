@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import SearchIcon from '../images/search.png';
+import { AiOutlineSearch as SearchIcon } from "react-icons/ai";
 import SearchList from './SearchList';
 
 function Search() {
@@ -18,7 +18,8 @@ function Search() {
   };  
   
   return (
-  <div className='header-search'>
+  <div className='header-search'
+       onClick={showSearchBar}>
     {!isClicked ? "" : // change classname if input empty
       <div>
         <input className='header-search-bar'
@@ -31,10 +32,7 @@ function Search() {
                     setIsClicked={setIsClicked} /> 
       </div>
     }
-    <img className='header-icon' // search icon
-         src={SearchIcon} 
-         alt='search'
-         onClick={showSearchBar}/>
+    <SearchIcon className='header-icon'/>
   </div>
   );
 }
