@@ -1,6 +1,6 @@
 
 import { connect } from "react-redux";
-import { setSearchItem } from "../redux/searchItem/searchItemActions";
+import { setSearchItem } from "../../redux/searchItem/searchItemActions";
 
 function SearchList({ input, isClicked, setIsClicked, itemsData, setSearchItem }) {
   // create new array wehere all names are lower case

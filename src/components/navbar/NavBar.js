@@ -4,7 +4,7 @@ import { useState } from "react";
 import { FiMenu as MenuIcon } from "react-icons/fi";
 
 import Menu from "./Menu";
-import Search from "../Search";
+import Search from "../search/Search";
 import useWindowWidth from '../useWindowWidth';
 
 import { GiShoppingCart as Cart } from "react-icons/gi";
