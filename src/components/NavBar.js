@@ -1,12 +1,12 @@
 
 import { Link } from 'react-router-dom';
 import { useState } from "react";
-import useWindowWidth from './useWindowWidth';
 
 import Menu from "./Menu";
 import Search from "./Search";
-import CartImage from '../images/cart.png';
+import useWindowWidth from './useWindowWidth';
 
+import { GiShoppingCart as Cart } from "react-icons/gi";
 
 function MenuIcon({ handleClick }) {
   return (
@@ -37,10 +37,7 @@ function Title() {
     return (
       <Link className='shopping' to='/chekout'>
         <p className='header-shopping-button'>
-          <img className='header-icon' 
-               src={CartImage} 
-               alt='buy'>
-          </img>
+          <Cart className='header-icon'/>
           {text}
         </p>
       </Link>

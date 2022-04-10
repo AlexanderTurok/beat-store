@@ -5,8 +5,8 @@ import { setSong } from "../redux/song/songActions";
 import share from "../images/share-button.png";
 import playButton from "../images/play-button.png";
 import pauseButton from "../images/pause-button.png";
-import CartImage from '../images/cart.png';
 import { togglePlaying } from "../redux/audioPlayer/playerActions";
+import { GiShoppingCart as Cart } from "react-icons/gi";
 
 function MusicLi({ item, setSong, playerData, togglePlaying }) {
 
@@ -39,8 +39,7 @@ function MusicLi({ item, setSong, playerData, togglePlaying }) {
       </div>
       <img className="music-li-el btn-share" src={share}></img>
       <button className="music-li-el btn-add">
-        <img className="cart-image"
-             src={CartImage}></img>
+        <Cart className="cart-image"/>
         ADD
       </button>
     </li>
