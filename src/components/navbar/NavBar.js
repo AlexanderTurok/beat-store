@@ -1,38 +1,13 @@
 
-import { Link } from 'react-router-dom';
 import { useState } from "react";
 import { FiMenu as MenuIcon } from "react-icons/fi";
 
 import Menu from "./Menu";
+import Title from './Title';
+import Login from './Login';
 import Search from "../search/Search";
+import Shopping from "./Shopping";
 import useWindowWidth from '../hooks/useWindowWidth';
-
-import { GiShoppingCart as Cart } from "react-icons/gi";
-
-function Title() {
-    return(
-      <Link className='title' to='/'>
-        <p>Beat Store</p>
-      </Link>
-    );
-  }
-  function Loggining() {
-    return (
-      <Link className='login' to='/logining'>
-        <p>LOG IN</p>
-      </Link>
-    );
-  }
-  function Shopping({ text }) {
-    return (
-      <Link className='shopping' to='/chekout'>
-        <p className='header-shopping-button'>
-          <Cart className='header-icon'/>
-          {text}
-        </p>
-      </Link>
-    );
-  }
 
 function NavBar() {
   // Get width of window
@@ -53,7 +28,7 @@ function NavBar() {
         <div className='header-col'>
           <Menu />
           <Shopping text={"$0.00"}/>
-          <Loggining />
+          <Login />
           <Search />
           <MenuIcon 
             className='menu-icon'
@@ -62,7 +37,7 @@ function NavBar() {
         </div>
       </div>
       <div className='mobile-version'>
-        {click && <Loggining />}
+        {click && <Login />}
         {click && <Menu />}
         {click && <Shopping text={"CART"}/>}
       </div>
