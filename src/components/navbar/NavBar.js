@@ -22,19 +22,15 @@ function NavBar() {
   return (
     <header className='header'>
       <div className='pc-version'>
-        <div className='header-col'>
-          <Title />
-        </div>
-        <div className='header-col'>
-          <Menu />
-          <Shopping text={"$0.00"}/>
-          <Login />
-          <Search />
-          <MenuIcon 
-            className='menu-icon'
-            onClick={() => handleClick()} 
-          />
-        </div>
+        <Title />
+        <Menu />
+        <Shopping text={"$0.00"}/>
+        <Login />
+        <Search />
+        <MenuIcon 
+          className='menu-icon'
+          onClick={() => handleClick()} 
+        />
       </div>
       <div className='mobile-version'>
         {click && <Login />}
