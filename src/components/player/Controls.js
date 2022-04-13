@@ -45,7 +45,9 @@ function Controls({ playerData, itemsData }) {
   }
 
   const handleEnd = (e) => {
-    // ------------------
+    if (playerData.repeat) goToNextSong();
+    else if (playerData.currentSong == itemsData.items.length - 1) return;
+    else goToNextSong();
   }
 
   const goToNextSong = () => {
