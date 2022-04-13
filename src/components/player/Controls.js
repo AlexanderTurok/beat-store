@@ -21,9 +21,9 @@ function Controls({ playerData, itemsData }) {
     const seconds = ~~(sec % 60);
 
     const returendMinutes = minutes < 10 ? 
-      `$0${minutes}` : minutes;
+      `0${minutes}` : minutes;
     const returendSeconds = seconds < 10 ? 
-      `$0${seconds}` : seconds;
+      `0${seconds}` : seconds;
 
     return `${returendMinutes}:${returendSeconds}`
   }
@@ -102,8 +102,10 @@ function Controls({ playerData, itemsData }) {
           (e) => handleProgress(
             ((e.clientX - e.target.offsetSeft) / e.target.offsetWidth) * 100
           )
-        }>
-      </progress>
+        }
+      />
+      <p>Current Time - {formatTime(currentTime)}</p>
+      <p>Total Time - {formatTime(duration)}</p>
     </div>
   )
 }
