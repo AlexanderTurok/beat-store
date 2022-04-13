@@ -17,7 +17,7 @@ function playerReducer(state = initialState, action) {
       return {
         ...state,
         currentSong: action.payload,
-        playing: true,
+        isPlaying: true,
       }
     case TOGGLE_REPEAT:
       return {
@@ -27,7 +27,7 @@ function playerReducer(state = initialState, action) {
     case TOGGLE_PLAYING:
       return {
         ...state,
-        isPlaying: !state.isPlaying,
+        isPlaying: state.isPlaying ? false : true,
       }
     default: return state;
   }
