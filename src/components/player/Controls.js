@@ -49,11 +49,19 @@ function Controls({ playerData, itemsData }) {
   }
 
   const goToNextSong = () => {
-    // ------------------
+    if (playerData.currentSong == itemsData.items.length) {
+      setCurrentSong(0)
+    } else {
+      setCurrentSong(playerData.currentSong + 1)
+    }
   }
 
   const goToPreviousSong = () => {
-    // ------------------
+    if (playerData.currentSong == 0) {
+      setCurrentSong(itemsData.items.length - 1)
+    } else {
+      setCurrentSong(playerData.currentSong - 1)
+    }
   }
 
   useEffect(() => {
@@ -75,7 +83,7 @@ function Controls({ playerData, itemsData }) {
           Prev Song
         </button>
         <button onClick={goToNextSong}>
-          Prev Song
+          Next Song
         </button>
         <button onClick={handlePlay}>
           Play / Pause
