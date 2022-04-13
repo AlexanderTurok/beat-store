@@ -1,29 +1,21 @@
 
 import { connect } from "react-redux";
-import { setSong } from "../../redux/song/songActions";
-
+import { setCurrentSong } from "../../redux/audioPlayer/playerActions";
+// images
 import { BsFillShareFill as Share } from "react-icons/bs";
 import { BsPlayCircle as PlayButton } from "react-icons/bs";
 import { BsPauseCircle as PauseButton } from "react-icons/bs";
-import { togglePlaying } from "../../redux/audioPlayer/playerActions";
 import { GiShoppingCart as Cart } from "react-icons/gi";
 
-function MusicLi({ item, setSong, playerData, togglePlaying }) {
-
-  const handleClick = () => {
-    // setSong sends title of the song to vizualizer
-    setSong(item);
-    togglePlaying();
-  }
+function MusicLi({ item, playerData, setCurrentSong }) {
 
   return(
-    <li className="music-li"
-        onClick={() => setSong(item)}>
-      <div 
-        className="play-image"
-        onClick={handleClick} >
-        <img className="music-li-el music-li-icon"
-             src={require(`../../images/${item.picturePath}.jpg`)}/>
+    <li className="music-li" onClick={() => setCurrentSong(item)}>
+      <div className="play-image">
+        <img 
+          className="music-li-el music-li-icon"
+          src={require(`../../images/${item.picturePath}.jpg`)}
+        />
         {playerData.isPlaying ? 
           <PauseButton className="play-button"/> : 
           <PlayButton className="play-button"/>}
@@ -56,8 +48,7 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    setSong: (...args) => dispatch(setSong(...args)),
-    togglePlaying: () => dispatch(togglePlaying())
+    setCurrentSong: (...args) => dispatch(setCurrentSong(...args))
   }
 }
 
