@@ -16,16 +16,8 @@ function Controls({ playerData, itemsData }) {
   const audio = useRef();
 
   // functions
-  const formatTime = (sec) => {
-    const minutes = ~~(sec / 60);
-    const seconds = ~~(sec % 60);
-
-    const returendMinutes = minutes < 10 ? 
-      `0${minutes}` : minutes;
-    const returendSeconds = seconds < 10 ? 
-      `0${seconds}` : seconds;
-
-    return `${returendMinutes}:${returendSeconds}`
+  const formatTime = (s) => {
+    return (s - (s %= 60)) / 60 + (9 < s ? ':' : ':0') + ~~s;
   }
 
   const handleProgress = (e) => {
