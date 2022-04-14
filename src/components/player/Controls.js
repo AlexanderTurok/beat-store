@@ -69,7 +69,7 @@ function Controls({ playerData, itemsData }) {
 
   useEffect(() => {
     playerData.isPlaying && toggleAudio();
-  }, [playerData.isPlaying, playerData.currentSong.id])
+  }, [playerData.currentSong])
 
   return (
     <div className="audio-player">
