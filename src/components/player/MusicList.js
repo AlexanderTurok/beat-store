@@ -39,17 +39,12 @@ function MusicList({ itemsData, fetchItems }) {
             ) 
           )
         }    
-        {itemsData.error ? (<h2>{itemsData.error.message}</h2>) : (
-          itemsData.loading) ? (<div>Loading...</div>) : (
-            <Controls />
-          )
-        }   
       </ul>
+      {itemsData.items.length > 0 && <Controls />}
       <button className="load-btn"
               onClick={loadMoreSongs}>
         {"<<< Load More Tracks >>>"}
       </button>
-      
     </div>
   );
 }

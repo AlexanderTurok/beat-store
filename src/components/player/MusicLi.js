@@ -10,7 +10,7 @@ import { GiShoppingCart as Cart } from "react-icons/gi";
 function MusicLi({ item, playerData, setCurrentSong }) {
 
   return(
-    <li className="music-li" onClick={() => setCurrentSong(item.id)}>
+    <li className="music-li" onClick={() => setCurrentSong(item.id - 1)}>
       <div className="play-image">
         <img 
           className="music-li-el music-li-icon"

@@ -13,7 +13,7 @@ function Controls({ playerData, itemsData }) {
   const [currentTime, setCurrentTime] = useState(0);
 
   // references
-  const audio = useRef('audio_tag');
+  const audio = useRef();
 
   // functions
   const formatTime = (sec) => {
@@ -75,8 +75,8 @@ function Controls({ playerData, itemsData }) {
       <audio 
         ref={audio}
         preload="metadata"
+        src={require(`../../music/${itemsData.items[playerData.currentSong].mp3Path}.mp3`)}
         onEnded={handleEnd}
-        // src={itemsData.items[playerData.currentSong].mp3Path}
         onCanPlay={(e) => setDuration(e.tager.duration)}
         onTimeUpdate={(e) => setCurrentTime(e.target.currentTime)}
       />
