@@ -51,11 +51,10 @@ function Controls({ playerData, itemsData, setCurrentSong, toggleRepeat, toggleP
   }
 
   const goToPreviousSong = () => {
-    if (playerData.currentSong.id === 0) {
-      setCurrentSong(itemsData.items[itemsData.items.length])
+    if (playerData.currentSong.id === 1) {
+      setCurrentSong(itemsData.items[itemsData.items.length - 1])
     } else {
       setCurrentSong(itemsData.items[playerData.currentSong.id - 2])
-      console.log(itemsData.items[playerData.currentSong.id - 2])
     }
   }
 
