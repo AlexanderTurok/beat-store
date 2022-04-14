@@ -5,10 +5,19 @@ import {
 } from './playerTypes';
 
 const initialState = {
-  currentSong: 0,
+  currentSong: {
+    "id": "a",
+    "bpm": 96,
+    "key": "A#",
+    "name": "We are the champions",
+    "wavPath": "we-are-the-champions",
+    "mp3Path": "we-are-the-champions",
+    "picturePath": "we-are-the-champions",
+    "tags": [{"name": "queen"},
+             {"name": "rock"}]
+  },
   repeat: false,
-  isPlaying: false,
-  audio: null,
+  isPlaying: false
 }
 
 function playerReducer(state = initialState, action) {

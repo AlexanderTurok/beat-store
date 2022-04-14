@@ -75,7 +75,7 @@ function Controls({ playerData, itemsData }) {
       <audio 
         ref={audio}
         preload="metadata"
-        src={require(`../../music/${itemsData.items[playerData.currentSong].mp3Path}.mp3`)}
+        src={require(`../../music/${playerData.currentSong.mp3Path}.mp3`)}
         onEnded={handleEnd}
         onCanPlay={(e) => setDuration(e.tager.duration)}
         onTimeUpdate={(e) => setCurrentTime(e.target.currentTime)}

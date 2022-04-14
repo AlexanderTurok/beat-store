@@ -2,7 +2,7 @@
 import { useRef, useEffect } from 'react';
 import { connect } from 'react-redux';
 
-function Visualizer({ songData, playerData }) {
+function Visualizer({ itemsData, playerData }) {
   const canvasRef = useRef(null);
 
   const WIDTH = 300;
@@ -12,9 +12,10 @@ function Visualizer({ songData, playerData }) {
     // canvas setup
     const canvas = canvasRef.current;
     const canvasCtx = canvas.getContext('2d');
-    
-    const audio = new Audio(require(
-      `../../music/${songData.song.mp3Path}.mp3`));
+    let audio;
+    {itemsData.items.length > 0 ? audio = new Audio(require(
+      `../../music/${playerData.currentSong.mp3Path}.mp3`)) : 
+    audio = new Audio();}
     let audioCtx = new AudioContext();
     
     const analyser = audioCtx.createAnalyser();
@@ -46,7 +47,7 @@ function Visualizer({ songData, playerData }) {
     draw(); 
     playerData.isPlaying ? audio.play() : audio.pause()
 
-  }, [playerData.isPlaying, songData.song.mp3Path]);     
+  }, [playerData.isPlaying, playerData.currentSong.mp3Path]);     
                     
   return (
     <canvas ref={canvasRef} />
@@ -55,7 +56,7 @@ function Visualizer({ songData, playerData }) {
 
 const mapStateToProps = (state) => {
   return {
-    songData: state.song,
+    itemsData: state.items,
     playerData: state.player
   }
 }

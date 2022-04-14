@@ -4,15 +4,14 @@ import { connect } from "react-redux";
 import MusicLi from '../player/MusicLi';
 import Visualizer from "./Visualizer";
 
-function VisualizationSection({ itemsData, playerData }) {
+function VisualizationSection({ playerData }) {
   return (
     <div className='visualization-section'>
       <ul className='music-data'>
-        {itemsData.items.length > 0 && 
-          <MusicLi 
-            item={itemsData.items[playerData.currentSong]} 
-          />
-        }
+        <MusicLi
+          key={playerData.currentSong.id} 
+          item={playerData.currentSong} 
+        />
       </ul> 
       <Visualizer />
     </div>
@@ -21,7 +20,6 @@ function VisualizationSection({ itemsData, playerData }) {
 
 const mapStateToProps = (state) => {
   return {
-    itemsData: state.items,
     playerData: state.player
   }
 };
