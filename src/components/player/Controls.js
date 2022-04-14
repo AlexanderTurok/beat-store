@@ -46,12 +46,12 @@ function Controls({ playerData, itemsData }) {
 
   const handleEnd = (e) => {
     if (playerData.repeat) goToNextSong();
-    else if (playerData.currentSong == itemsData.items.length - 1) return;
+    else if (playerData.currentSong === itemsData.items.length - 1) return;
     else goToNextSong();
   }
 
   const goToNextSong = () => {
-    if (playerData.currentSong == itemsData.items.length) {
+    if (playerData.currentSong === itemsData.items.length) {
       setCurrentSong(0)
     } else {
       setCurrentSong(playerData.currentSong + 1)
@@ -59,7 +59,7 @@ function Controls({ playerData, itemsData }) {
   }
 
   const goToPreviousSong = () => {
-    if (playerData.currentSong == 0) {
+    if (playerData.currentSong === 0) {
       setCurrentSong(itemsData.items.length - 1)
     } else {
       setCurrentSong(playerData.currentSong - 1)
@@ -68,7 +68,7 @@ function Controls({ playerData, itemsData }) {
 
   useEffect(() => {
     playerData.isPlaying && toggleAudio();
-  }, [playerData.currentSong])
+  }, [playerData.isPlaying, playerData.currentSong])
 
   return (
     <div className="audio-player">

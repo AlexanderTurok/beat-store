@@ -40,7 +40,7 @@ function MusicList({ itemsData, fetchItems }) {
           )
         }    
       </ul>
-      {itemsData.items.length > 0 && <Controls />}
+      <Controls />
       <button className="load-btn"
               onClick={loadMoreSongs}>
         {"<<< Load More Tracks >>>"}
