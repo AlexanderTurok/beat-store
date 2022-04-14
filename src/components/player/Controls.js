@@ -77,7 +77,7 @@ function Controls({ playerData, itemsData }) {
         preload="metadata"
         src={require(`../../music/${playerData.currentSong.mp3Path}.mp3`)}
         onEnded={handleEnd}
-        onCanPlay={(e) => setDuration(e.tager.duration)}
+        onCanPlay={(e) => setDuration(e.target.duration)}
         onTimeUpdate={(e) => setCurrentTime(e.target.currentTime)}
       />
       <div className="control-buttons">

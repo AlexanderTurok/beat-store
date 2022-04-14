@@ -6,7 +6,7 @@ import {
 
 const initialState = {
   currentSong: {
-    "id": "a",
+    "id": 0,
     "bpm": 96,
     "key": "A#",
     "name": "We are the champions",
