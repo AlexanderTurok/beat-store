@@ -52,29 +52,30 @@ function Controls({ playerData, itemsData }) {
 
   const goToNextSong = () => {
     if (playerData.currentSong === itemsData.items.length) {
-      setCurrentSong(0)
+      setCurrentSong(itemsData.items[0])
+      console.log()
     } else {
-      setCurrentSong(playerData.currentSong + 1)
+      setCurrentSong(itemsData.items[playerData.currentSong.id + 1])
     }
   }
 
   const goToPreviousSong = () => {
-    if (playerData.currentSong === 0) {
-      setCurrentSong(itemsData.items.length - 1)
+    if (playerData.currentSong.id === 0) {
+      setCurrentSong(itemsData.items[itemsData.items.length - 1])
     } else {
-      setCurrentSong(playerData.currentSong - 1)
+      setCurrentSong(itemsData.items[playerData.currentSong.id - 1])
     }
   }
 
   useEffect(() => {
     playerData.isPlaying && toggleAudio();
-  }, [playerData.isPlaying, playerData.currentSong])
+  }, [playerData.isPlaying, playerData.currentSong.id])
 
   return (
     <div className="audio-player">
       <audio 
         ref={audio}
-        preload="metadata"
+        preload="true"
         src={require(`../../music/${playerData.currentSong.mp3Path}.mp3`)}
         onEnded={handleEnd}
         onCanPlay={(e) => setDuration(e.target.duration)}
@@ -88,21 +89,17 @@ function Controls({ playerData, itemsData }) {
           Next Song
         </button>
         <button onClick={handlePlay}>
-          Play / Pause
+          {playerData.isPlaying ? "Pause" : "Play"}
         </button>
         <button onClick={toggleRepeat}>
           Repeat
         </button>
       </div>
-      <progress
+      <input
+        type="range"
         id="progressBar"
         value={duration ? (currentTime * 100) / duration : 0}
-        max="100"
-        onClick={ 
-          (e) => handleProgress(
-            ((e.clientX - e.target.offsetSeft) / e.target.offsetWidth) * 100
-          )
-        }
+        onChange={handleProgress}
       />
       <p>Current Time - {formatTime(currentTime)}</p>
       <p>Total Time - {formatTime(duration)}</p>

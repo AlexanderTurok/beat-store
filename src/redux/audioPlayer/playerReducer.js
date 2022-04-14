@@ -36,7 +36,7 @@ function playerReducer(state = initialState, action) {
     case TOGGLE_PLAYING:
       return {
         ...state,
-        isPlaying: state.isPlaying ? false : true,
+        isPlaying: !state.isPlaying
       }
     default: return state;
   }
