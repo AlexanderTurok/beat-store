@@ -7,7 +7,7 @@ import {
   toggleRepeat
 } from "../../redux/audioPlayer/playerActions"
 
-function Controls({ playerData, itemsData }) {
+function Controls({ playerData, itemsData, setCurrentSong, toggleRepeat, togglePlaying }) {
   // states
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
