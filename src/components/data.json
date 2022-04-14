@@ -48,5 +48,14 @@
     "picturePath": "moonlight-sonata",
     "tags": [{"name": "classic"},
              {"name": "bethoveen"}]
-    }
+    }, {
+    "bpm": 86,
+    "key": "B#",
+    "name": "We are the people",
+    "wavPath": "we-are-the-people",
+    "mp3Path": "we-are-the-people",
+    "picturePath": "we-are-the-people",
+    "tags": [{"name": "empire of the sun"},
+             {"name": "disco"}]
+    } 
 ]
