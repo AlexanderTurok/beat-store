@@ -38,24 +38,24 @@ function Controls({ playerData, itemsData, setCurrentSong, toggleRepeat, toggleP
 
   const handleEnd = (e) => {
     if (playerData.repeat) goToNextSong();
-    else if (playerData.currentSong === itemsData.items.length - 1) return;
+    else if (playerData.currentSong.id === itemsData.items.length - 1) return;
     else goToNextSong();
   }
 
   const goToNextSong = () => {
-    if (playerData.currentSong === itemsData.items.length) {
+    if (playerData.currentSong.id === itemsData.items.length) {
       setCurrentSong(itemsData.items[0])
-      console.log()
     } else {
-      setCurrentSong(itemsData.items[playerData.currentSong.id + 1])
+      setCurrentSong(itemsData.items[playerData.currentSong.id])
     }
   }
 
   const goToPreviousSong = () => {
     if (playerData.currentSong.id === 0) {
-      setCurrentSong(itemsData.items[itemsData.items.length - 1])
+      setCurrentSong(itemsData.items[itemsData.items.length])
     } else {
-      setCurrentSong(itemsData.items[playerData.currentSong.id - 1])
+      setCurrentSong(itemsData.items[playerData.currentSong.id - 2])
+      console.log(itemsData.items[playerData.currentSong.id - 2])
     }
   }
 
@@ -108,7 +108,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setCurrentSong: () => dispatch(setCurrentSong()),
+    setCurrentSong: (...args) => dispatch(setCurrentSong(...args)),
     toggleRepeat: () => dispatch(toggleRepeat()),
     togglePlaying: () => dispatch(togglePlaying())
   }
