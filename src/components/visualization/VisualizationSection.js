@@ -4,18 +4,15 @@ import { connect } from "react-redux";
 import MusicLi from '../player/MusicLi';
 import Visualizer from "./Visualizer";
 
-function VisualizationSection({ searchData, songData }) {
-  let data;
-  // if we didnt search song, show first element from fetched data
-  if (searchData.searchItem === undefined) data = [songData.song];
-  else data = [searchData.searchItem]
-  
+function VisualizationSection({ itemsData, playerData }) {
   return (
     <div className='visualization-section'>
       <ul className='music-data'>
-        {data.map((item) => (
-          <MusicLi key={item.id} item={item}/>
-        ))}
+        {itemsData.items.length > 0 && 
+          <MusicLi 
+            item={itemsData.items[playerData.currentSong]} 
+          />
+        }
       </ul> 
       <Visualizer />
     </div>
@@ -24,8 +21,8 @@ function VisualizationSection({ searchData, songData }) {
 
 const mapStateToProps = (state) => {
   return {
-    searchData: state.searchItem,
-    songData: state.song
+    itemsData: state.items,
+    playerData: state.player
   }
 };
 
