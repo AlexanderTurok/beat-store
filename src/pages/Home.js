@@ -1,7 +1,7 @@
 
 import MusicList from "../components/player/MusicList"
 
-function Home({}) {
+function Home() {
   return (
     <div className="home">
       <MusicList />

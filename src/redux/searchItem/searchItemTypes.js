@@ -1,2 +1,0 @@
-
-export const SET_SEARCH_ITEM = 'SET_SEARCH_ITEM';

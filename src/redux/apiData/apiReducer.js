@@ -24,7 +24,7 @@ function apiReducer(state = initialState, action) {
     }
     case FETCH_ITEMS_FAILURE: return {
       ...state,
-      isLoaded: false,
+      loading: false,
       items: [],
       error: action.payload
     }

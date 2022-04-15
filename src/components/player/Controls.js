@@ -7,25 +7,17 @@ import {
   toggleRepeat
 } from "../../redux/audioPlayer/playerActions"
 
-function Controls({ playerData, itemsData }) {
+function Controls({ playerData, itemsData, setCurrentSong, toggleRepeat, togglePlaying }) {
   // states
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
 
   // references
-  const audio = useRef('audio_tag');
+  const audio = useRef();
 
   // functions
-  const formatTime = (sec) => {
-    const minutes = ~~(sec / 60);
-    const seconds = ~~(sec % 60);
-
-    const returendMinutes = minutes < 10 ? 
-      `$0${minutes}` : minutes;
-    const returendSeconds = seconds < 10 ? 
-      `$0${seconds}` : seconds;
-
-    return `${returendMinutes}:${returendSeconds}`
+  const formatTime = (s) => {
+    return (s - (s %= 60)) / 60 + (9 < s ? ':' : ':0') + ~~s;
   }
 
   const handleProgress = (e) => {
@@ -45,15 +37,25 @@ function Controls({ playerData, itemsData }) {
   }
 
   const handleEnd = (e) => {
-    // ------------------
+    if (playerData.repeat) goToNextSong();
+    else if (playerData.currentSong.id === itemsData.items.length - 1) return;
+    else goToNextSong();
   }
 
   const goToNextSong = () => {
-    // ------------------
+    if (playerData.currentSong.id === itemsData.items.length) {
+      setCurrentSong(itemsData.items[0])
+    } else {
+      setCurrentSong(itemsData.items[playerData.currentSong.id])
+    }
   }
 
   const goToPreviousSong = () => {
-    // ------------------
+    if (playerData.currentSong.id === 1) {
+      setCurrentSong(itemsData.items[itemsData.items.length - 1])
+    } else {
+      setCurrentSong(itemsData.items[playerData.currentSong.id - 2])
+    }
   }
 
   useEffect(() => {
@@ -64,10 +66,10 @@ function Controls({ playerData, itemsData }) {
     <div className="audio-player">
       <audio 
         ref={audio}
-        preload="metadata"
+        preload="true"
+        src={require(`../../music/${playerData.currentSong.mp3Path}.mp3`)}
         onEnded={handleEnd}
-        // src={itemsData.items[playerData.currentSong].mp3Path}
-        onCanPlay={(e) => setDuration(e.tager.duration)}
+        onCanPlay={(e) => setDuration(e.target.duration)}
         onTimeUpdate={(e) => setCurrentTime(e.target.currentTime)}
       />
       <div className="control-buttons">
@@ -75,21 +77,23 @@ function Controls({ playerData, itemsData }) {
           Prev Song
         </button>
         <button onClick={goToNextSong}>
-          Prev Song
+          Next Song
         </button>
         <button onClick={handlePlay}>
-          Play / Pause
+          {playerData.isPlaying ? "Pause" : "Play"}
         </button>
         <button onClick={toggleRepeat}>
           Repeat
         </button>
       </div>
       <input
-          type="range"
-          name="progresBar"
-          onChange={handleProgress}
-          value={duration ? (currentTime * 100) / duration : 0}
-        />
+        type="range"
+        id="progressBar"
+        value={duration ? (currentTime * 100) / duration : 0}
+        onChange={handleProgress}
+      />
+      <p>Current Time - {formatTime(currentTime)}</p>
+      <p>Total Time - {formatTime(duration)}</p>
     </div>
   )
 }
@@ -103,7 +107,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setCurrentSong: () => dispatch(setCurrentSong()),
+    setCurrentSong: (...args) => dispatch(setCurrentSong(...args)),
     toggleRepeat: () => dispatch(toggleRepeat()),
     togglePlaying: () => dispatch(togglePlaying())
   }

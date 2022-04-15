@@ -1,8 +1,8 @@
 
 import { connect } from "react-redux";
-import { setSearchItem } from "../../redux/searchItem/searchItemActions";
+import { setCurrentSong } from "../../redux/audioPlayer/playerActions";
 
-function SearchList({ input, isClicked, setIsClicked, itemsData, setSearchItem }) {
+function SearchList({ input, isClicked, setIsClicked, itemsData, setCurrentSong }) {
   // create new array wehere all names are lower case
   const filteredData = itemsData.items.filter((item) => {
     return item.name.toLowerCase().includes(input);
@@ -10,7 +10,7 @@ function SearchList({ input, isClicked, setIsClicked, itemsData, setSearchItem }
 
   const handleClick = (item) => {
      // send song obj to visulizer section
-    setSearchItem(item);
+    setCurrentSong(item);
     // close list when song is choosen
     setIsClicked(!isClicked);
   }
@@ -36,7 +36,7 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    setSearchItem: (...args) => dispatch(setSearchItem(...args))
+    setCurrentSong: (...args) => dispatch(setCurrentSong(...args))
   }
 }
 
