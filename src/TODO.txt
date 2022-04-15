@@ -1,4 +1,0 @@
-
-- Make: when new song is choosed to play, previous must to stop
-- Create: infinite scroll screen
-- Build player
